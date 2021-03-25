@@ -53,8 +53,13 @@ function updateCounter() {
   const itemCount = document.getElementById('itemCount');
   itemCount.innerHTML = '';
 
+  let itemsInCart = 0;
+  for(let item of cart.items) {
+    itemsInCart += item.quantity;
+  }
+
   const newPElement = document.createElement('p');
-  newPElement.textContent = cart.items.length;
+  newPElement.textContent = `Total items in cart: ${itemsInCart}`;
 
   itemCount.appendChild(newPElement);
 }
