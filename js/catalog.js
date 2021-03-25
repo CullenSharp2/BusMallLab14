@@ -39,7 +39,7 @@ function handleSubmit(event) {
 
 }
 
-// TODO: Add the selected item and quantity to the cart
+// TODONE: Add the selected item and quantity to the cart
 function addSelectedItemToCart(event) {
   const product = event.target.items.value;
   const quantity = parseInt(event.target.quantity.value);
@@ -64,7 +64,7 @@ function updateCounter() {
   itemCount.appendChild(newPElement);
 }
 
-// TODO: As you add items into the cart, show them (item & quantity) in the cart preview div
+// TODONE: As you add items into the cart, show them (item & quantity) in the cart preview div
 function updateCartPreview() {
   const cartPreviewElem = document.getElementById('cartContents');
   cartPreviewElem.innerHTML = '';
