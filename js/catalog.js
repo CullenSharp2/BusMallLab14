@@ -46,7 +46,6 @@ function addSelectedItemToCart(event) {
 
   //uses the addItem method in app.js
   cart.addItem(product, quantity);
-  console.log(cart);
 }
 
 // TODONE: Update the cart count in the header nav with the number of items in the Cart
@@ -65,8 +64,14 @@ function updateCartPreview() {
   const cartPreviewElem = document.getElementById('cartContents');
   cartPreviewElem.innerHTML = '';
   const items = cart.items;
-  // TODO: Get the item and quantity from the form
-  // TODO: Add a new element to the cartContents div with that information
+  let contents;
+
+  for (let item of items) {
+    contents = document.createElement('p');
+    contents.textContent = `${item.quantity} ${item.product}(s)`;
+
+    cartPreviewElem.appendChild(contents);
+  }
 }
 
 // Set up the "submit" event listener on the form.
