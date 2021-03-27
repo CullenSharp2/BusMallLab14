@@ -31,7 +31,6 @@ function populateForm() {
 function handleSubmit(event) {
   event.preventDefault(); //prevents page from loading
 
-  // Do all the things ...
   addSelectedItemToCart(event);
   cart.saveToLocalStorage();
   updateCounter();

@@ -19,6 +19,7 @@ Cart.prototype.saveToLocalStorage = function() {
 
 Cart.prototype.removeItem = function(index) {
   //pass an index in
+  //delete item at index
   this.items.splice(index,1);
 };
 
