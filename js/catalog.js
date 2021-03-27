@@ -31,7 +31,6 @@ function populateForm() {
 function handleSubmit(event) {
   event.preventDefault(); //prevents page from loading
 
-  // Do all the things ...
   addSelectedItemToCart(event);
   cart.saveToLocalStorage();
   updateCounter();
@@ -52,7 +51,8 @@ function updateCounter() {
   itemCount.innerHTML = '';
 
   let itemsInCart = 0;
-  for(let item of cart.items) {
+  let retrievedItems = JSON.parse(localStorage.getItem('cart'));
+  for(let item of retrievedItems) {
     itemsInCart += item.quantity;
   }
 
@@ -67,8 +67,9 @@ function updateCartPreview() {
   cartPreviewElem.innerHTML = '';
   const items = cart.items;
   let contents;
+  let retrievedItems = JSON.parse(localStorage.getItem('cart'));
 
-  for (let item of items) {
+  for (let item of retrievedItems) {
     contents = document.createElement('p');
     contents.textContent = `${item.quantity} ${item.product}(s)`;
 
@@ -85,3 +86,5 @@ catalogForm.addEventListener('submit', handleSubmit);
 // Before anything else of value can happen, we need to fill in the select
 // drop down list in the form.
 populateForm();
+updateCounter();
+updateCartPreview();
